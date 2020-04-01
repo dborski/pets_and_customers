@@ -30,20 +30,15 @@ class CustomerTest < Minitest::Test
 
     assert_equal [samson, lucy], joel.pets
   end
+
+  def test_can_charge_customer_and_add_outstanding_balance
+    joel = Customer.new("Joel", 2)
+
+    assert_equal 0, joel.outstanding_balance
+
+    joel.charge(15)
+    joel.charge(7)
+
+    assert_equal 22, joel.outstanding_balance
+  end
 end
-
-
-
-# ## Iteration 2
-#
-# Use TDD to create a `Customer` class that responds to the following interaction pattern:
-#
-# joel.outstanding_balance
-# # => 0
-#
-# joel.charge(15)
-#
-# joel.charge(7)
-#
-# joel.outstanding_balance
-# # => 22
