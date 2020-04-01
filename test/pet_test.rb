@@ -28,18 +28,3 @@ class PetTest < Minitest::Test
     assert_equal true, samson.fed?
   end
 end
-
-
-# ## Iteration 1
-#
-# Use TDD to create a `Pet` class that repsonds to the following interaction pattern:
-
-#
-# samson.fed?
-# # => false
-#
-# samson.feed
-#
-# samson.fed?
-# # => true
-# ```
