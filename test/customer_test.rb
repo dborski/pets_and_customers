@@ -17,6 +17,19 @@ class CustomerTest < Minitest::Test
     assert_equal "Joel", joel.name
     assert_equal 2, joel.id
   end
+
+  def test_can_adopt_pets
+    joel = Customer.new("Joel", 2)
+    samson = Pet.new({name: "Samson", type: :dog, age: 3})
+    lucy = Pet.new({name: "Lucy", type: :cat, age: 12})
+
+    assert_equal [], joel.pets
+
+    joel.adopt(samson)
+    joel.adopt(lucy)
+
+    assert_equal [samson, lucy], joel.pets
+  end
 end
 
 
@@ -24,23 +37,6 @@ end
 # ## Iteration 2
 #
 # Use TDD to create a `Customer` class that responds to the following interaction pattern:
-#
-
-# joel.pets
-# # => []
-#
-# samson = Pet.new({name: "Samson", type: :dog, age: 3})
-# # => #<Pet:0x00007ff8dc1f86a0...>
-#
-# lucy = Pet.new({name: "Lucy", type: :cat, age: 12})
-# # => #<Pet:0x00007ff8dc93e108...>
-#
-# joel.adopt(samson)
-#
-# joel.adopt(lucy)
-#
-# joel.pets
-# # => [#<Pet:0x00007ff8dc1f86a0...>, #<Pet:0x00007ff8dc93e108...>]
 #
 # joel.outstanding_balance
 # # => 0
