@@ -1,18 +1,9 @@
 class Pet
-  attr_reader :name,
-              :type
 
-  def initialize(attributes)
-    @name = attributes[:name]
-    @type = attributes[:type]
-    @fed = false
-  end
-
-  def feed
-    @fed = true
-  end
-
-  def fed?
-    @fed
+  attr_reader :name, :type, :age
+  def initialize(init_hash)
+    @name = init_hash[:name]
+    @type = init_hash[:type]
+    @age = init_hash[:age]
   end
 end
