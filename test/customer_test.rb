@@ -41,4 +41,6 @@ class CustomerTest < Minitest::Test
 
     assert_equal 22, joel.outstanding_balance
   end
+
+  
 end
